@@ -21,33 +21,33 @@ import com.google.android.gms.location.*
 
 
 class HomeFragment : Fragment() {
-    lateinit var mFusedLocationClient: FusedLocationProviderClient
+
 
     @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
+        var mFusedLocationClient: FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireActivity())
 
 
 
-            val mLocationRequest= LocationRequest()
-            mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
-            mLocationRequest.setInterval(0)
+        val mLocationRequest= LocationRequest()
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+        mLocationRequest.setInterval(0)
 
 
-            mFusedLocationClient=LocationServices.getFusedLocationProviderClient(requireActivity())
-            mFusedLocationClient.requestLocationUpdates(mLocationRequest, object : LocationCallback(){
-                @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-                override fun onLocationResult(locationResult: LocationResult?) {
-                    val mLastLocation: Location = locationResult!!.getLastLocation()
+        mFusedLocationClient=LocationServices.getFusedLocationProviderClient(requireActivity())
+        mFusedLocationClient.requestLocationUpdates(mLocationRequest, object : LocationCallback(){
+            @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+            override fun onLocationResult(locationResult: LocationResult?) {
+                val mLastLocation: Location = locationResult!!.getLastLocation()
 
-                    val geoCoder = Geocoder(requireContext())
-                   val address =geoCoder.getFromLocation(mLastLocation.latitude, mLastLocation.longitude, 1)
+                val geoCoder = Geocoder(requireContext())
+                val address =geoCoder.getFromLocation(mLastLocation.latitude, mLastLocation.longitude, 1)
 
-                }
+            }
 
-            }, Looper.myLooper())
+        }, Looper.myLooper())
 
 
     }
