@@ -13,4 +13,6 @@
     <color name="darkOrange">#F39876</color>
     <color name="lightGrey">#C9C9C9</color>
     <color name="darkGrey">#9C9EAA</color>
+    <color name="cardColor">#FEE6D2</color>
+    <color name="offWhite">#F8F0E3</color>
 </resources>
