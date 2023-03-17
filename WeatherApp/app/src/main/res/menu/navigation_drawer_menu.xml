@@ -5,19 +5,23 @@
         <item android:title="@string/Home"
             android:id="@+id/home"
             android:icon="@drawable/home_icon"
+            android:iconTint="@color/white"
             />
         <item android:title="@string/Favourite"
-            android:id="@+id/favourite"
-            android:icon="@drawable/favourite_icon"/>
+            android:id="@+id/addFavourite"
+            android:icon="@drawable/favourite_icon"
+            android:iconTint="@color/white"/>
 
         <item android:title="@string/Alerts"
             android:id="@+id/alerts"
-            android:icon="@drawable/alert_icon"/>
+            android:icon="@drawable/alert_icon"
+            android:iconTint="@color/white"/>
 
 
         <item android:title="@string/Setting"
             android:id="@+id/setting"
-            android:icon="@drawable/seeting_icon"/>
+            android:icon="@drawable/seeting_icon"
+            android:iconTint="@color/white"/>
 
             </group>
 

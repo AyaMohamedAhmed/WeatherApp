@@ -15,4 +15,7 @@
     <color name="darkGrey">#9C9EAA</color>
     <color name="cardColor">#FEE6D2</color>
     <color name="offWhite">#F8F0E3</color>
+    <color name="orange">#FE724C</color>
+    <color name="themeColor">#83A2A8</color>
+
 </resources>

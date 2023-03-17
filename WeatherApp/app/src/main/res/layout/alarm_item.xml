@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/settings_card_background"
+    android:backgroundTint="#1fffffff"
+    android:layout_margin="10dp"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+
+    <TextView
+
+        android:id="@+id/date_alarm"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"
+        android:text="@string/StartDate"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+
+        android:id="@+id/Time_alarm"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Time"
+        android:layout_marginBottom="12sp"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/date_alarm"
+        app:layout_constraintStart_toStartOf="@+id/date_alarm"
+        app:layout_constraintTop_toBottomOf="@+id/date_alarm" />
+
+
+    <ImageView
+        android:background="@drawable/cancel"
+        android:backgroundTint="@color/white"
+        android:id="@+id/cancel_alarm"
+        android:layout_height="32dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

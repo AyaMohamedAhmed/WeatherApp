@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">WeatherApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Home">Home</string>
     <string name="Favourite">Favourite</string>
@@ -32,5 +31,44 @@
     <string name="WindSpeed2">Mile/ Hour</string>
     <string name="Enable">Enable</string>
     <string name="Disable">Disable</string>
+    <string name="AddAlert">Add Alert</string>
+    <string name="next">Next</string>
+    <string name="temperature">What Is The  Temprature??</string>
+    <string name="back">Back</string>
+    <string name="skip">Skip</string>
+    <string name="cloud">Is it cloudy??</string>
+    <string name="alarm_notification">Alarm And Notification To Remind You</string>
+    <string name="now">Now</string>
+    <string name="choose_location">"Choose Your Location?? "</string>
+    <string name="gps">GPS</string>
+    <string name="map">Map</string>
+    <string name="Alarm">Alarm</string>
+    <string name="notification">Notification</string>
+    <string name="choose_notification">Choose your Notifcation?</string>
+    <string name="select_location">Select Location</string>
+    <string name="SelectTime">Select Time</string>
+    <string name="Time">Time</string>
+    <string name="StartDate">Start Date</string>
+    <string name="EndDate">EndDate</string>
+    <string name="DayName">Saturday</string>
+    <string name="Pressure">Pressure</string>
+    <string name="Humidity">Humidity</string>
+    <string name="Wind">Wind</string>
+    <string name="Cloud">Cloud</string>
+    <string name="UltraViolet">Ultra Violet</string>
+    <string name="Visibility">Visibility</string>
+    <string name="Address">Address</string>
+    <string name="save">Save</string>
+    <string name="alert">Alert</string>
+    <string name="SplashScreen">Splash</string>
+    <string name="SettingScreen">Setting</string>
+    <string name="OnBoardingScreen">OnBoarding</string>
+    <string name="HomeScreen">Weather</string>
+    <string name="AlertsScreen">Alerts</string>
+    <string name="DialogScreen">Dialog</string>
+    <string name="FavouriteScreen">Favourite</string>
+    <string name="MapScreen">Map</string>
+    <string name="Dismiss">Dismiss</string>
+
 
 </resources>

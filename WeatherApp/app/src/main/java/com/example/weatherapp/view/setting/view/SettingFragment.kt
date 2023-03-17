@@ -1,60 +1,178 @@
 package com.example.weatherapp.view.setting.view
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.weatherapp.R
+import com.example.weatherapp.databinding.FragmentSettingBinding
+import com.example.weatherapp.model.Settings
+import com.example.weatherapp.utils.Constant
+import com.example.weatherapp.utils.Utils
+import java.util.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SettingFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+private const val TAG = "SettingFragment"
 class SettingFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    lateinit var binding: FragmentSettingBinding
+    private lateinit var sharedPreference: SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
+    private var strLanguage: String = ""
+    private var strTempUnit: String = ""
+    private var strWindUnit: String = ""
+    private var strLocation: String = ""
+    private lateinit var setting: Settings
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        sharedPreference =
+            requireActivity().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        editor = sharedPreference.edit()
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_setting, container, false)
+        binding = FragmentSettingBinding.inflate(inflater, container, false)
+        return binding.root
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SettingFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SettingFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        //location
+        if (sharedPreference.getString(Constant.LOCATION, Constant.GPS) == "GPS") {
+            binding.gpsRadioBtn.isChecked = true
+        } else {
+            binding.MapRadioBtn.isChecked = true
+        }
+
+        //temp unit
+        if (sharedPreference.getString(
+                Constant.TEMPRATUREUNIT,
+                Constant.CeLSIUS
+            ) == Constant.CeLSIUS
+        ) {
+            binding.celsiusRadioBtn.isChecked = true
+        } else if (sharedPreference.getString(
+                Constant.TEMPRATUREUNIT,
+                Constant.CeLSIUS
+            ) == Constant.FAHRENHEIT
+        ) {
+            binding.fahrenhitRadioBtn.isChecked = true
+        } else if (sharedPreference.getString(
+                Constant.TEMPRATUREUNIT,
+                Constant.CeLSIUS
+            ) == Constant.KELVIN
+        ) {
+            binding.kelvinRadioBtn.isChecked = true
+        }
+
+        //wind unit
+        if (sharedPreference.getString(Constant.WINDUNIT, Constant.MILEHOUR) == Constant.MILEHOUR) {
+            binding.WindMileRadioBtn.isChecked = true
+        } else {
+            binding.WindMeterRadioBtn.isChecked = true
+        }
+        //alarm
+
+        if (sharedPreference.getString(Constant.NOTIFICATIONSGROUP,Constant.NOTIFICATION) == Constant.NOTIFICATION
+        ) {
+            Log.i(TAG, "onViewCreated: notifitcation setti"+sharedPreference.getString(
+                Constant.NOTIFICATIONSGROUP,
+                Constant.NOTIFICATION
+            ))
+            binding.notificationRadioBtn.isChecked = true
+        } else {
+            Log.i(TAG, "onViewCreated: alarm setting "+sharedPreference.getString(
+                Constant.NOTIFICATIONSGROUP,
+                Constant.ALARM
+            ))
+            binding.AlarmRadioBtn.isChecked = true
+        }
+        //lang
+        if (sharedPreference.getString(Constant.LANGUAGE, Constant.English) == Constant.English) {
+            binding.englishRadioBtn.isChecked = true
+        } else {
+            binding.arabicRadioBtn.isChecked = true
+        }
+
+
+
+
+        binding.LocationGroup.setOnCheckedChangeListener { radioGroup, id ->
+            val radioTempUnit: RadioButton = view.findViewById(id)
+            strLocation = radioTempUnit.text.toString()
+            editor.putString(Constant.LOCATION, strLocation)
+            editor.apply()
+            if (strLocation == Constant.MAP) {
+                if (Utils.isOnline(requireContext())) {
+                    findNavController().navigate(R.id.action_setting_to_mapSettingFragment)
+                }
+                else{
+                    Toast.makeText(context,"You Are In Offline Mode Plz Turn On Network",Toast.LENGTH_LONG).show()
+
                 }
             }
+        }
+
+        binding.languageGroup.setOnCheckedChangeListener { _, _ ->
+            if (binding.arabicRadioBtn.isChecked) {
+                strLanguage = Constant.Arabic
+            } else {
+                strLanguage = Constant.English
+            }
+            editor.putString(Constant.LANGUAGE, strLanguage)
+            editor.apply()
+            setLanguage(strLanguage, requireContext())
+        }
+
+        binding.TemperatureGroup.setOnCheckedChangeListener { radioGroup, id ->
+            val radioTempUnit: RadioButton = view.findViewById(id)
+            strTempUnit = radioTempUnit.text.toString()
+            editor.putString(Constant.TEMPRATUREUNIT, strTempUnit)
+            editor.commit()
+        }
+
+        binding.WindSpeedGroup.setOnCheckedChangeListener { radioGroup, i ->
+            val radioWindUnit: RadioButton = view.findViewById(i)
+            strWindUnit = radioWindUnit.text.toString()
+            editor.putString(Constant.WINDUNIT, strWindUnit)
+            editor.apply()
+        }
+
+        binding.NotificationGroup.setOnCheckedChangeListener { radioGroup, i ->
+            val radioNotification: RadioButton = view.findViewById(i)
+            editor.putString(Constant.NOTIFICATIONSGROUP, radioNotification.text.toString())
+            editor.commit()
+        }
+
     }
+
+    private fun setLanguage(language: String, context: Context) {
+        val metric = resources.displayMetrics
+        val configuration = resources.configuration
+        configuration.locale = Locale(language)
+        Locale.setDefault(Locale(language))
+        configuration.setLayoutDirection(Locale(language))
+        configuration.setLocale(Locale(language))
+        // update configuration
+        resources.updateConfiguration(configuration, metric)
+        // notify configuration
+        onConfigurationChanged(configuration)
+        startActivity(Intent(context, context::class.java))
+
+
+    }
+
+
 }

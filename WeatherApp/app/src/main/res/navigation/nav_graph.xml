@@ -3,26 +3,130 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/home">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/home"
         android:name="com.example.weatherapp.view.home.view.HomeFragment"
-        android:label="fragment_home"
+        android:label="@string/HomeScreen"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/setting"
         android:name="com.example.weatherapp.view.setting.view.SettingFragment"
-        android:label="fragment_setting"
-        tools:layout="@layout/fragment_setting" />
+        android:label="@string/SettingScreen"
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_setting_to_mapSettingFragment"
+            app:destination="@id/mapSettingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/favourite"
         android:name="com.example.weatherapp.view.favourite.view.FavouriteFragment"
-        android:label="fragment_favourite"
+        android:label="@string/MapScreen"
         tools:layout="@layout/fragment_favourite" />
     <fragment
         android:id="@+id/alerts"
         android:name="com.example.weatherapp.view.alerts.view.AlertsFragment"
-        android:label="fragment_alerts"
-        tools:layout="@layout/fragment_alerts" />
+        android:label="@string/AlertsScreen"
+        tools:layout="@layout/fragment_alerts">
+        <action
+            android:id="@+id/action_alerts_to_alertDialogFragment"
+            app:destination="@id/alertDialogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/seconedOnBoardingFragment"
+        android:name="com.example.weatherapp.view.onboarding.view.SeconedOnBoardingFragment"
+        android:label="@string/OnBoardingScreen">
+        <action
+            android:id="@+id/action_seconedOnBoardingFragment_to_thirdOnBoardingFragment"
+            app:destination="@id/thirdOnBoardingFragment" />
+        <action
+            android:id="@+id/action_seconedOnBoardingFragment_to_home"
+            app:destination="@id/home" />
+        <action
+            android:id="@+id/action_seconedOnBoardingFragment_to_firstOnBoardingFragment"
+            app:destination="@id/firstOnBoardingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdOnBoardingFragment"
+        android:name="com.example.weatherapp.view.onboarding.view.ThirdOnBoardingFragment"
+        android:label="@string/OnBoardingScreen">
+        <action
+            android:id="@+id/action_thirdOnBoardingFragment_to_seconedOnBoardingFragment"
+            app:destination="@id/seconedOnBoardingFragment" />
+        <action
+            android:id="@+id/action_thirdOnBoardingFragment_to_settingDialogFragment"
+            app:destination="@id/settingDialogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstOnBoardingFragment"
+        android:name="com.example.weatherapp.view.onboarding.view.FirstOnBoardingFragment"
+        android:label="@string/OnBoardingScreen"
+        tools:layout="@layout/fragment_third_on_boarding">
+        <action
+            android:id="@+id/action_firstOnBoardingFragment_to_seconedOnBoardingFragment"
+            app:destination="@id/seconedOnBoardingFragment" />
+        <action
+            android:id="@+id/action_firstOnBoardingFragment_to_home"
+            app:destination="@id/home" />
+        <action
+            android:id="@+id/action_firstOnBoardingFragment_to_settingDialogFragment"
+            app:destination="@id/settingDialogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingDialogFragment"
+        android:name="com.example.weatherapp.view.settingdialog.SettingDialogFragment"
+        android:label="@string/DialogScreen"
+        tools:layout="@layout/fragment_setting_dialog">
+        <action
+            android:id="@+id/action_settingDialogFragment_to_home"
+            app:destination="@id/home" />
+        <action
+            android:id="@+id/action_settingDialogFragment_to_favourite"
+            app:destination="@id/favourite" />
+        <action
+            android:id="@+id/action_settingDialogFragment_to_mapSettingFragment"
+            app:destination="@id/mapSettingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.weatherapp.view.splash.SplashFragment"
+        android:label="@string/SplashScreen"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_firstOnBoardingFragment"
+            app:destination="@id/firstOnBoardingFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_home"
+            app:destination="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFavourite"
+        android:name="com.example.weatherapp.view.favourite.view.AddFavouriteLocationFragment"
+        android:label="@string/FavouriteScreen"
+        tools:layout="@layout/fragment_add_favourite_location">
+        <action
+            android:id="@+id/action_addFavouriteLocationFragment_to_favourite"
+            app:destination="@id/favourite" />
+        <action
+            android:id="@+id/action_addFavourite_to_home2"
+            app:destination="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/alertDialogFragment"
+        android:name="com.example.weatherapp.view.alerts.view.AlertDialogFragment"
+        android:label="@string/DialogScreen"
+        tools:layout="@layout/fragment_dialog_alert">
+        <action
+            android:id="@+id/action_alertDialogFragment_to_alerts"
+            app:destination="@id/alerts" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapSettingFragment"
+        android:name="com.example.weatherapp.view.setting.view.MapSettingFragment"
+        android:label="MapSettingFragment" >
+        <action
+            android:id="@+id/action_mapSettingFragment_to_home"
+            app:destination="@id/home" />
+    </fragment>
 </navigation>

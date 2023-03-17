@@ -1,10 +1,12 @@
 package com.example.weatherapp
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.location.LocationManager
 import android.os.Bundle
@@ -21,19 +23,35 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.weatherapp.databinding.ActivityMainBinding
+import com.example.weatherapp.utils.Constant
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.Priority
 import com.google.android.material.navigation.NavigationView
 
-const val PERMISSION_ID=11
+const val PERMISSION_ID = 11
 
 class MainActivity : AppCompatActivity() {
     var drawerLayout: DrawerLayout? = null
-
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    lateinit var sharedPreference: SharedPreferences
+    lateinit var editor: SharedPreferences.Editor
 
+    @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        sharedPreference = this.getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        editor = sharedPreference.edit()
+
+        LocationServices.getFusedLocationProviderClient(this).getCurrentLocation(Priority.PRIORITY_HIGH_ACCURACY, null)
+            .addOnSuccessListener { location ->
+                location?.let {
+                    editor.putFloat(Constant.LAT, location.latitude.toFloat())
+                    editor.putFloat(Constant.LON, location.longitude.toFloat())
+                    editor.apply()
+                }
+            }
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.appBarMain.toolbar)
@@ -42,7 +60,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.home, R.id.setting, R.id.favourite,R.id.alerts
+                R.id.home, R.id.setting, R.id.addFavourite, R.id.alerts
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -78,13 +96,13 @@ class MainActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if(requestCode == PERMISSION_ID){
-            if(grantResults[0]!= PackageManager.PERMISSION_GRANTED){
+        if (requestCode == PERMISSION_ID) {
+            if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
                 showLocationPermissionDialog()
-            }else{
-                if(!isLocationEnabled(this)){
-                    Toast.makeText(this,"plz turn on location", Toast.LENGTH_SHORT).show()
-                    val intent= Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+            } else {
+                if (!isLocationEnabled(this)) {
+                    Toast.makeText(this, "plz turn on location", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
                     startActivity(intent)
                 }
             }
@@ -92,56 +110,60 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    companion object{
-        fun getMyLocation(activity: Activity){
-            if(checkPermissions(activity)){
-                if(!isLocationEnabled(activity)){
-                    Toast.makeText(activity,"plz turn on location", Toast.LENGTH_SHORT).show()
-                    val intent= Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+    companion object {
+        fun getMyLocation(activity: Activity) {
+            if (checkPermissions(activity)) {
+                if (!isLocationEnabled(activity)) {
+                    Toast.makeText(activity, "plz turn on location", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
                     activity.startActivity(intent)
                 }
-            }else{
+            } else {
                 requestPermissions(activity)
 
             }
         }
 
 
-
-        private fun isLocationEnabled(activity:Activity):Boolean{
-            val locationManager: LocationManager =activity.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        private fun isLocationEnabled(activity: Activity): Boolean {
+            val locationManager: LocationManager =
+                activity.getSystemService(Context.LOCATION_SERVICE) as LocationManager
             return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
         }
 
-        private fun checkPermissions(activity:Activity):Boolean{
-            return ActivityCompat.checkSelfPermission(activity.applicationContext,android.Manifest.permission.ACCESS_COARSE_LOCATION)== PackageManager.PERMISSION_GRANTED &&
-                    ActivityCompat.checkSelfPermission(activity.applicationContext,android.Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED
+        private fun checkPermissions(activity: Activity): Boolean {
+            return ActivityCompat.checkSelfPermission(
+                activity.applicationContext,
+                android.Manifest.permission.ACCESS_COARSE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED &&
+                    ActivityCompat.checkSelfPermission(
+                        activity.applicationContext,
+                        android.Manifest.permission.ACCESS_FINE_LOCATION
+                    ) == PackageManager.PERMISSION_GRANTED
         }
 
-        private fun requestPermissions(activity:Activity){
+        private fun requestPermissions(activity: Activity) {
             ActivityCompat.requestPermissions(
                 activity,
                 arrayOf(
                     android.Manifest.permission.ACCESS_COARSE_LOCATION,
                     android.Manifest.permission.ACCESS_FINE_LOCATION
                 ),
-                PERMISSION_ID)
+                PERMISSION_ID
+            )
         }
 
 
     }
 
 
-
-
-
-    fun showLocationPermissionDialog(){
-        val dialogBuild:AlertDialog.Builder = AlertDialog.Builder(this)
+    private fun showLocationPermissionDialog() {
+        val dialogBuild: AlertDialog.Builder = AlertDialog.Builder(this)
         dialogBuild.setIcon(R.drawable.icon)
         dialogBuild.setTitle("Weather App")
         dialogBuild.setMessage("Please Allow Weather App Access your location")
         dialogBuild.setCancelable(false)
-        dialogBuild.setPositiveButton("Allow"){ dialogInterface: DialogInterface, i: Int ->
+        dialogBuild.setPositiveButton("Allow") { dialogInterface: DialogInterface, i: Int ->
             getMyLocation(this)
         }
 

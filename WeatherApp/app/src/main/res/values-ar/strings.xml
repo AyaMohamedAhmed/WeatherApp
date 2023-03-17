@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">طقس</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Home">الرئيسية</string>
+    <string name="Favourite">المفضلة</string>
+    <string name="Alerts">المنبه</string>
+    <string name="Setting">الاعدادات</string>
+    <string name="nav_open">مفتوح</string>
+    <string name="nav_close">مغلق</string>
+    <string name="title_activity_main">الصفحة الرئيسية</string>
+    <string name="navigation_drawer_open">مفتوح</string>
+    <string name="navigation_drawer_close">مغلق</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">الاعدادات</string>
+    <string name="api_key">AIzaSyAbuHdF1hB_ddtCtgEZ7iE3cDqXk4zpVJU</string>
+    <string name="Location">الموقع</string>
+    <string name="Language">اللغة</string>
+    <string name="Temprature">درجة الحرارة</string>
+    <string name="WindSpeed">سرعة الرياح</string>
+    <string name="Notification">تنبيه</string>
+    <string name="GPS">الموقع</string>
+    <string name="Map">الخريطة</string>
+    <string name="English">الانجليزية</string>
+    <string name="Arabic">العربية</string>
+    <string name="Celsius">سيليزيوس</string>
+    <string name="Kelvin">كلفن</string>
+    <string name="Fahrenheit">فهرنهايت</string>
+    <string name="windSpeed">متر/ثانية</string>
+    <string name="WindSpeed2">ميل/ساعة</string>
+    <string name="Enable">سماح</string>
+    <string name="Disable">عدم سماح</string>
+    <string name="AddAlert">اضافة منبة</string>
+    <string name="next">التالى</string>
+    <string name="temperature">ماهى درجة الحرارة؟؟</string>
+    <string name="back">السابق</string>
+    <string name="skip">ابدا</string>
+    <string name="cloud">هل هى مغيمة</string>
+    <string name="alarm_notification">منبة ورسائل لتنبيهك</string>
+    <string name="now">الان</string>
+    <string name="choose_location">"حدد طريقة اختيار موقعك؟؟ "</string>
+    <string name="gps">الموقع</string>
+    <string name="map">الخريطة</string>
+    <string name="Alarm">المنبة</string>
+    <string name="notification">التنبيه</string>
+    <string name="choose_notification">حدد طريقة تنبيهك؟؟</string>
+    <string name="select_location">أختار موقعك</string>
+    <string name="SelectTime">أختار الوقت</string>
+    <string name="Time">الوقت</string>
+    <string name="StartDate">بداية التاريخ</string>
+    <string name="EndDate">نهاية التاريخ</string>
+    <string name="DayName">السبت</string>
+    <string name="Pressure">الضغط</string>
+    <string name="Humidity">الرطوبة</string>
+    <string name="Wind">الرياح</string>
+    <string name="Cloud">مغيم</string>
+    <string name="UltraViolet">فوق بنفسجى</string>
+    <string name="Visibility">الوضوح</string>
+    <string name="Address">العنوان</string>
+    <string name="save">حفظ</string>
+    <string name="alert">المنبة</string>
+    <string name="SplashScreen">Splash</string>
+    <string name="SettingScreen">الاعدادات</string>
+    <string name="OnBoardingScreen">OnBoarding</string>
+    <string name="HomeScreen">الرئيسية</string>
+    <string name="AlertsScreen">التنبيه</string>
+    <string name="DialogScreen">Dialog</string>
+    <string name="FavouriteScreen">المفضلة</string>
+    <string name="MapScreen">خريطة</string>
+    <string name="Dismiss">اغلاق</string>
+
+
+
+</resources>
