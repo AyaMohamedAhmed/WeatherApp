@@ -102,8 +102,20 @@ class AlertDialogFragment : Fragment() {
                     longitude = long.toDouble()
                 )
             )
-            setAlarmWorker()
-            findNavController().navigate(R.id.action_alertDialogFragment_to_alerts)
+            if(timeCheker( startDate,endDate)){
+
+                setAlarmWorker()
+                findNavController().navigate(R.id.action_alertDialogFragment_to_alerts)
+            }
+            else{
+                alertsViewModel.deleteAlert(Alert(
+                    startDate = startDate,
+                    endDate = endDate,
+                    time = time,
+                    latitude = lat.toDouble(),
+                    longitude = long.toDouble()
+                ))
+            }
 
         }
         //hour?.let {
@@ -197,6 +209,22 @@ class AlertDialogFragment : Fragment() {
         return formatter.format(this)
     }
 
+    private fun timeCheker(startDate:String,endDate:String): Boolean {
+        val year = Calendar.getInstance().get(Calendar.YEAR)
+        val month = Calendar.getInstance().get(Calendar.MONTH)
+        val day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+        val dayNow = getDateMillis("$day/${month + 1}/$year")
+        val startDate=getDateMillis("${startDate}")
+        val endDate=getDateMillis("${endDate}")
+        return dayNow >= startDate && dayNow <= endDate
+    }
+
+
+    private fun getDateMillis(date: String): Long {
+        val f = SimpleDateFormat("dd/MM/yyyy")
+        val d: Date = f.parse(date)
+        return d.time
+    }
 
 }
 

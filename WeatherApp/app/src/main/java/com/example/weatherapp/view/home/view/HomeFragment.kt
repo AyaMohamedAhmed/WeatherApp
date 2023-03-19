@@ -89,8 +89,8 @@ class HomeFragment : Fragment() {
         val sharedPreferences =
             requireActivity().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
 
-        val lat = sharedPreferences.getFloat(Constant.LAT, 61.5240f)
-        val long = sharedPreferences.getFloat(Constant.LON, 105.318756f)
+        val lat = sharedPreferences.getFloat(Constant.LAT, 30.62116f)
+        val long = sharedPreferences.getFloat(Constant.LON, 32.26987f)
         val lang = sharedPreferences.getString(Constant.LANGUAGE, Constant.English)!!
 
         homeViewModelFactory = HomeViewModelFactory(repository, sharedPreferences)

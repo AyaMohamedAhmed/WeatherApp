@@ -9,13 +9,68 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52fbad3a-d774-460c-83c4-9a2cce3865e4" name="Changes" comment="" />
+    <list default="true" id="52fbad3a-d774-460c-83c4-9a2cce3865e4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/alerts/view/AlertDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/alerts/view/AlertDialogFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/alerts/view/AlertDialogNotifications.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/alerts/view/AlertDialogNotifications.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/alerts/view/AlertsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/alerts/view/AlertsFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/alerts/view/Worker.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/alerts/view/Worker.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/favourite/view/AddFavouriteLocationFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/favourite/view/AddFavouriteLocationFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/favourite/view/FavouriteFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/favourite/view/FavouriteFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/home/view/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/home/view/HomeFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/onboarding/view/FirstOnBoardingFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/onboarding/view/FirstOnBoardingFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/onboarding/view/SeconedOnBoardingFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/onboarding/view/SeconedOnBoardingFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/onboarding/view/ThirdOnBoardingFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/onboarding/view/ThirdOnBoardingFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/setting/view/MapSettingFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/setting/view/MapSettingFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/setting/view/SettingFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/setting/view/SettingFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/settingdialog/SettingDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/settingdialog/SettingDialogFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/splash/SplashFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/java/com/example/weatherapp/view/splash/SplashFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/drawable/add.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/drawable/add.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/drawable/alert_icon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/drawable/alert_icon.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/drawable/cancel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/drawable/cancel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/drawable/favourite_icon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/drawable/favourite_icon.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/drawable/home_icon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/drawable/home_icon.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/drawable/menu_icon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/drawable/menu_icon.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/drawable/seeting_icon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/drawable/seeting_icon.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/drawable/settings_card_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/drawable/settings_card_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/app_bar_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/app_bar_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_add_favourite_location.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_add_favourite_location.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_alert_dialog_notifications.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_alert_dialog_notifications.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_alerts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_alerts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_dialog_alert.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_dialog_alert.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_favourite.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_favourite.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_first_on_boarding.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_first_on_boarding.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_map_setting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_map_setting.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_seconed_on_boarding.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_seconed_on_boarding.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_setting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_setting.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_setting_dialog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_setting_dialog.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_splash.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_splash.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_third_on_boarding.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/fragment_third_on_boarding.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/home_day.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/layout/home_day.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/mipmap-anydpi-v33/ic_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/mipmap-anydpi-v33/ic_launcher.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/values-land/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/values-land/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/values-night/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/values-w1240dp/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/values-w1240dp/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/values-w600dp/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/values-w600dp/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/xml/backup_rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/xml/backup_rules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherApp/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherApp/app/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\hp\.android\avd\7.6_Fold-in_with_outer_display_API_30.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\hp\.android\avd\Pixel_4_API_33.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -39,7 +94,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "cidr.known.project.marker": "true",
-    "last_opened_file_path": "D:/ITI_9month_native/AndroidKotlin/project/WeatherApp",
+    "dart.analysis.tool.window.visible": "false",
+    "last_opened_file_path": "D:/ITI_9month_native/WeatherAppFinally/weatherApp",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.17",
     "project.structure.side.proportion": "0.2"

@@ -24,6 +24,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.weatherapp.databinding.ActivityMainBinding
 import com.example.weatherapp.utils.Constant
+import com.google.android.gms.location.CurrentLocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.material.navigation.NavigationView
@@ -31,27 +32,18 @@ import com.google.android.material.navigation.NavigationView
 const val PERMISSION_ID = 11
 
 class MainActivity : AppCompatActivity() {
-    var drawerLayout: DrawerLayout? = null
+    private var drawerLayout: DrawerLayout? = null
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    lateinit var sharedPreference: SharedPreferences
-    lateinit var editor: SharedPreferences.Editor
+    private lateinit var sharedPreference: SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
 
     @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         sharedPreference = this.getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         editor = sharedPreference.edit()
 
-        LocationServices.getFusedLocationProviderClient(this).getCurrentLocation(Priority.PRIORITY_HIGH_ACCURACY, null)
-            .addOnSuccessListener { location ->
-                location?.let {
-                    editor.putFloat(Constant.LAT, location.latitude.toFloat())
-                    editor.putFloat(Constant.LON, location.longitude.toFloat())
-                    editor.apply()
-                }
-            }
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.appBarMain.toolbar)
@@ -66,8 +58,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         getMyLocation(this)
-
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -86,10 +76,7 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
-
+    @SuppressLint("MissingPermission")
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -97,6 +84,16 @@ class MainActivity : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == PERMISSION_ID) {
+            LocationServices.getFusedLocationProviderClient(this).getCurrentLocation(
+                CurrentLocationRequest.Builder()
+                .build(), null)
+                .addOnSuccessListener { location ->
+                    location?.let {
+                        editor.putFloat(Constant.LAT, location.latitude.toFloat())
+                        editor.putFloat(Constant.LON, location.longitude.toFloat())
+                        editor.apply()
+                    }
+                }
             if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
                 showLocationPermissionDialog()
             } else {
@@ -120,7 +117,6 @@ class MainActivity : AppCompatActivity() {
                 }
             } else {
                 requestPermissions(activity)
-
             }
         }
 
@@ -166,7 +162,6 @@ class MainActivity : AppCompatActivity() {
         dialogBuild.setPositiveButton("Allow") { dialogInterface: DialogInterface, i: Int ->
             getMyLocation(this)
         }
-
         val dialog = dialogBuild.create()
         dialog.show()
     }

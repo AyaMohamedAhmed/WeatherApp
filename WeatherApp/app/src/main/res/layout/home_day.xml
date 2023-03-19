@@ -34,12 +34,11 @@
         android:id="@+id/iconWeatherDayItem"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginStart="70dp"
+        android:layout_marginStart="30dp"
         app:layout_constraintBottom_toBottomOf="@+id/nameDayItem"
         app:layout_constraintStart_toEndOf="@+id/nameDayItem"
         app:layout_constraintTop_toTopOf="@+id/nameDayItem"
-        app:srcCompat="@drawable/few_cloud"
-        />
+        app:srcCompat="@drawable/few_cloud" />
 
     <TextView
         android:id="@+id/weather"

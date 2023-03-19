@@ -18,6 +18,7 @@ import com.example.weatherapp.model.Repository
 import com.example.weatherapp.utils.Constant
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.*
 
@@ -26,10 +27,10 @@ class Worker(var context: Context, var paras: WorkerParameters) : CoroutineWorke
     private lateinit var repository: Repository
     private var lat: Double = 0.0
     private var long: Double = 0.0
+    val endDate = inputData.getLong("endDate", 0)
+    val date = Calendar.getInstance().timeInMillis
 
     override suspend fun doWork(): Result {
-        val endDate = inputData.getLong("endDate", 0)
-        val date = Calendar.getInstance().timeInMillis
 
         if (date > endDate) {
             val sharedPreference =
@@ -52,11 +53,14 @@ class Worker(var context: Context, var paras: WorkerParameters) : CoroutineWorke
             when (sharedPreference.getString(Constant.NOTIFICATIONSGROUP, Constant.ALARM)) {
                 ("Alarm") -> {
                     //setAlarm(context, "Weather App", alertDescription)
+                    delay(60000)
                     GlobalScope.launch(Dispatchers.Main) {
                         AlertDialogNotifications(context, alertDescription).onCreate()
                     }
                 }
                 else -> {
+                    delay(60000)
+                    alertDescription="weather is Fine, no alerts"
                     setNotification(context, "Weather App", alertDescription)
                 }
             }

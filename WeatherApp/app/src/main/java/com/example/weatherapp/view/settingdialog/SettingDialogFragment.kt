@@ -1,5 +1,7 @@
 package com.example.weatherapp.view.settingdialog
 
+import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -9,26 +11,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.weatherapp.R
 import com.example.weatherapp.utils.Constant
+import com.example.weatherapp.utils.SharedManager
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.Priority
 
 class SettingDialogFragment : Fragment() {
     lateinit var location: RadioButton
-    lateinit var locationGroup: RadioGroup
-    lateinit var notification: RadioButton
-    lateinit var notificationGroup: RadioGroup
-    //lateinit var sharedManager: SharedManager
-    lateinit var sharedPreference: SharedPreferences
-    lateinit var editor: SharedPreferences.Editor
+    private lateinit var locationGroup: RadioGroup
+    private lateinit var notificationGroup: RadioGroup
+    private lateinit var notification: RadioButton
+    private lateinit var sharedManager: SharedManager
+    private lateinit var sharedPreference: SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,10 +44,24 @@ class SettingDialogFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_setting_dialog, container, false)
     }
 
+    @SuppressLint("MissingPermission")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         locationGroup = view.findViewById(R.id.location_radio_group)
         notificationGroup = view.findViewById(R.id.Notification_Radio_Group)
+        notificationGroup.setOnCheckedChangeListener { _, check ->
+            when (check) {
+                R.id.notification_radio_button-> {
+                    editor.putString(Constant.NOTIFICATIONSGROUP, Constant.NOTIFICATION)
+                    editor.apply()
+                }
+
+                R.id.Alarm_radio_button-> {
+                    editor.putString(Constant.NOTIFICATIONSGROUP, Constant.ALARM)
+                    editor.apply()
+                }
+            }
+        }
 
         locationGroup.setOnCheckedChangeListener { group, checkedId ->
             location = view.findViewById(checkedId)
@@ -59,7 +75,6 @@ class SettingDialogFragment : Fragment() {
                     editor.apply()
 
                     findNavController().navigate(R.id.action_settingDialogFragment_to_mapSettingFragment)
-
                 }
                Constant.GPS-> {
                     /*val settingsData = sharedManager.settings
@@ -69,41 +84,18 @@ class SettingDialogFragment : Fragment() {
 
                     editor.putString(Constant.LOCATION,Constant.GPS)
                     editor.apply()
-                    findNavController().navigate(R.id.action_settingDialogFragment_to_home)
-
+                   findNavController().navigate(R.id.action_settingDialogFragment_to_home)
                 }
             }
-
-            notification = view.findViewById(checkedId)
-            notificationGroup.setOnCheckedChangeListener { group, checkedId ->
-
-                when (notification.text.toString()) {
-                    Constant.NOTIFICATION -> {
-                        /* sharedManager.settings = sharedManager.settings.apply {
+            /* sharedManager.settings = sharedManager.settings.apply {
                              notificationType = "Notification"
                              isFirst = false*/
-                        Log.i("TAG", "onViewCreated: notification "+notification.text)
-                        editor.putString(Constant.NOTIFICATIONSGROUP, Constant.NOTIFICATION)
-                        editor.commit()
-                    }
 
-//                    getString(R.string.Alarm) -> {
-                    Constant.ALARM-> {
-                        /*sharedManager.settings = sharedManager.settings.apply {
+            /*sharedManager.settings = sharedManager.settings.apply {
                             notificationType = "Alarm"
                             isFirst = false*/
-                        Log.i("TAG", "onViewCreated: alarm"+notification.text)
-                        editor.putString(Constant.NOTIFICATIONSGROUP, Constant.ALARM)
-
-                        editor.commit()
-                    }
-                }
-
-
-            }
-
-
         }
+
     }
 }
 

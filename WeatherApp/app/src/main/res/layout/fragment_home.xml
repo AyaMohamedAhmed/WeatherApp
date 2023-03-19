@@ -52,7 +52,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cardView7"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="80dp"
                 android:layout_marginEnd="24dp"
@@ -116,6 +116,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="32dp"
+                    android:layout_marginBottom="20dp"
                     android:gravity="center"
                     android:text="TextView"
                     android:textColor="@color/white"

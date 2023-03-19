@@ -99,7 +99,7 @@ class SettingFragment : Fragment() {
             ))
             binding.AlarmRadioBtn.isChecked = true
         }
-        //lang
+
         if (sharedPreference.getString(Constant.LANGUAGE, Constant.English) == Constant.English) {
             binding.englishRadioBtn.isChecked = true
         } else {
